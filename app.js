@@ -30,7 +30,7 @@ corsPromise().then(
         data.data.forEach(function(plant) {
             addToPage += "<h1>" + plant.common_name + "</h1>" +
                 "<h2>" + plant.family + "</h2>" +
-                "<img src=" + plant.image_url + " width=50%>"
+                "<img src=" + plant.image_url + " width=10%>"
         })
         console.log(document.getElementById("body"))
         document.getElementById("hello").innerHTML = addToPage;
