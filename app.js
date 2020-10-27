@@ -1,6 +1,6 @@
 var corsApiUrl = "https://cors-anywhere.herokuapp.com/";
 // TODO: REPLACE YOUR TOKEN
-var apiToken = "?token=FmwJR0xq3wx8HvcxNQN4hRB-x5xnx3cBLCmTHgF-BA4";
+var apiToken = "?token=FmwJR0xq3wx8HvcxNQN4hRB-x5xnx3cBLCmTHgF-BA4&range[maximum_height_cm]=5,20";
 
 // CORS stands for "cross origin resource sharing" -- you'll be making http requests in order
 // DON'T CHANGE THIS: fetches the data from the API endpoint
@@ -27,12 +27,11 @@ corsPromise().then(
         let data = JSON.parse(request.response);
         console.log(data);
         addToPage = "";
-        for (let plantID in data.data) {
-            let plant = data.data[plantID]
+        data.data.forEach(function(plant) {
             addToPage += "<h1>" + plant.common_name + "</h1>" +
                 "<h2>" + plant.family + "</h2>" +
                 "<img src=" + plant.image_url + " width=50%>"
-        }
+        })
         console.log(document.getElementById("body"))
         document.getElementById("hello").innerHTML = addToPage;
 
